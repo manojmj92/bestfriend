@@ -12,7 +12,7 @@
   </div>
   <% unless params[:since].nil? && params[:until].nil? %>
   <div class="col-md-6 col-md-offset-3">
-    <h4> Showing data from <%= params[:since] %> to  <%= params[:untill] %> </h4>
+    <h4><span class="label label-primary"><%=@post_count%></span>  posts from <%= params[:since] %> to  <%= params[:untill] %> </h4>
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">

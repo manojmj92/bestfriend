@@ -39,6 +39,8 @@ class UsersController < ApplicationController
 			until: params[:until],
       fields: ['id'] }).pluck("id")
 
+		@post_count = post_ids.count
+
 		@likes = Hash.new
 		all_liked_users = Array.new
 
