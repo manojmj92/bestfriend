@@ -1,0 +1,5 @@
+<% unless current_user %>
+  <%= link_to '/auth/facebook', class: 'login-button' do %>
+  	<%= image_tag 'facebook-login' %>
+  <% end %>
+<% end %>
