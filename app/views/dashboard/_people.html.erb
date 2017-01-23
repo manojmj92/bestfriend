@@ -8,11 +8,11 @@
   </thead>
   <tbody>
     <% index = 1 %>
-    <% peoples.each do |i, people| %>
+    <% peoples.each_with_index do |people, i| %>
       <tr>
         <th scope="row"><%= index %></th>
-        <td><%= people[:name] %></td>
-        <td><%= people[:count] %></td>
+        <td><%= people.name %></td>
+        <td><%= people.count %></td>
         <% index += 1 %>
       </tr>
     <% end %>
