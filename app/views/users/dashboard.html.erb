@@ -4,7 +4,7 @@
   <div class="col-md-6 col-md-offset-3">
     <%=form_tag "/dashboard", method: "get", class: 'form-inline filter-form'  do %>
       <%= text_field_tag :since, "", class: 'form-control', placeholder: 'since date (yyyy-mm-dd)' %>
-      <%= text_field_tag :untill, "", class: 'form-control', placeholder:'To date (yyyy-mm-dd)'%>
+      <%= text_field_tag :until, "", class: 'form-control', placeholder:'To date (yyyy-mm-dd)'%>
       <%= submit_tag "Search", class: 'form-control' %>
     <%end%>
     <br>
@@ -12,11 +12,11 @@
   </div>
   <% unless params[:since].nil? && params[:until].nil? %>
   <div class="col-md-6 col-md-offset-3">
-    <h4><span class="label label-primary"><%=@post_count%></span>  posts from <%= params[:since] %> to  <%= params[:untill] %> </h4>
+    <h4><span class="label label-primary"><%=@post_count%></span>  posts from <%= params[:since] %> to  <%= params[:until] %> </h4>
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#likers" aria-controls="likers" role="tab" data-toggle="tab">Likers</a></li>
+      <li role="presentation" class="active"><a href="#likers" aria-controls="likers" role="tab" data-toggle="tab">Reactors</a></li>
       <li role="presentation"><a href="#commenters" aria-controls="commenters" role="tab" data-toggle="tab">Commenters</a></li>
     </ul>
 
@@ -25,8 +25,8 @@
       <div role="tabpanel" class="tab-pane active" id="likers">
         <br>
         <div class="row">
-          <%= render :partial => 'data-block', :locals => {:count => @likes.map { |i, h| h[:count] }.sum, :message => 'Likes Received' } %>
-          <%= render :partial => 'data-block', :locals => {:count => @likes.count, :message => 'People Liked' } %>
+          <%= render :partial => 'data-block', :locals => {:count => @likes.map { |i, h| h[:count] }.sum, :message => 'Reactions Received' } %>
+          <%= render :partial => 'data-block', :locals => {:count => @likes.count, :message => 'People Reacted' } %>
         </div>
         <hr>
         <%= render :partial => 'people', :locals => {:peoples => @likes } %>
